@@ -1,4 +1,5 @@
-import { db } from "./data.js";
+//products.models
+import { db } from "../data.js";
 import {
   collection,
   getDocs,
@@ -24,11 +25,11 @@ export async function getProductById(id) {
   if (!productDoc.exists()) return null;
   return { id: productDoc.id, ...productDoc.data() };
 }
-
+//borrar producto por id
 export async function deleteProductById(id) {
   await deleteDoc(doc(productosColeccion, id));
 }
-
+//agregar producto
 export async function saveProduct(productos) {
   await addDoc(productosColeccion, productos);
 }
